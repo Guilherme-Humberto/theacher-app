@@ -2,6 +2,9 @@
 :root {
   --color-background: #332F3C;
   --color-text: #ffffff;
+  --color-primary: #8257E5;
+  --font-primary: 'Roboto Mono', monospace;
+  --font-secondary: 'Ubuntu', sans-serif;
 }
 
 *,
@@ -18,10 +21,13 @@ body {
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+}
+
+body,
+input,
+button,
+textarea,
+select {
+  font-family: var(--font-primary);
 }
