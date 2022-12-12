@@ -29,6 +29,10 @@ const clickEvent = () => emit('clickEvent')
 </template>
 
 <style scoped>
+button {
+  font-size: 16px;
+}
+
 .btn-fill,
 .btn-outline {
   outline: none;

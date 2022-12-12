@@ -1,12 +1,35 @@
 @import './base.css';
 
-.base-input {
+input.base-input {
   outline: none;
-  background: transparent;
+  background: var(--color-tertiary);
   height: 45px;
   padding: 0 20px;
-  border: 2px solid var(--color-secondary);
+  border: none;
   border-radius: 5px;
   width: 100%;
   color: var(--color-text);
+}
+
+textarea.base-input {
+  outline: none;
+  background: var(--color-tertiary);
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  color: var(--color-text);
+  resize: none;
+}
+
+.input-group {
+  display: grid;
+  gap: 20px;
+}
+
+.input-group.cl3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.input-group.cl2 {
+  grid-template-columns: repeat(2, 1fr);
 }

@@ -1,5 +1,6 @@
 <script setup>
 import { reactive } from 'vue'
+import { RouterLink } from 'vue-router'
 import BaseButton from '../../components/atoms/BaseButton.vue'
 
 const data = reactive({
@@ -41,6 +42,9 @@ const teste = () => {
           @clickEvent="teste"
           text="Começar meus estudos"
         />
+        <RouterLink to="">
+          <a class="link-to-student-login"> Sou aluno, acessar minha conta </a>
+        </RouterLink>
       </form>
     </div>
   </div>
@@ -73,6 +77,7 @@ const teste = () => {
   font-weight: 500;
   max-width: 500px;
   width: 100%;
+  letter-spacing: -2px;
 }
 
 .subtitle {
@@ -88,5 +93,10 @@ const teste = () => {
   gap: 20px;
   width: 100%;
   max-width: 500px;
+}
+
+.link-to-student-login {
+  font-family: var(--font-secondary);
+  color: var(--color-secondary);
 }
 </style>
