@@ -22,10 +22,18 @@ import BaseButton from '../../components/atoms/BaseButton.vue'
       </p>
       <div class="btns">
         <RouterLink to="/student">
-          <BaseButton type="submit" typeStyle="fill" text="Estudar na theacher" />
+          <BaseButton
+            type="submit"
+            typeStyle="fill"
+            text="Estudar na theacher"
+          />
         </RouterLink>
         <RouterLink to="/teacher">
-          <BaseButton type="submit" typeStyle="outline" text="Dar aulas na theacher" />
+          <BaseButton
+            type="submit"
+            typeStyle="outline"
+            text="Dar aulas na theacher"
+          />
         </RouterLink>
       </div>
     </div>
@@ -69,7 +77,7 @@ import BaseButton from '../../components/atoms/BaseButton.vue'
 
 .title {
   font-size: 60px;
-  letter-spacing: -9%;
+  letter-spacing: -2px;
   font-weight: bold;
   line-height: 75px;
   max-width: 800px;
