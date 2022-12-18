@@ -1,5 +1,21 @@
 <script setup>
+import { ref, reactive } from 'vue'
 import BaseButton from '../../components/atoms/BaseButton.vue'
+import BaseInput from '../../components/atoms/BaseInput.vue'
+
+const timeData = reactive([{ day: '', start: '', end: '' }])
+
+const addTimeObjData = () => {
+  timeData.push({ day: '', start: '', end: '' })
+}
+
+const handleSubmit = () => {
+  console.log(timeData)
+}
+
+const changeModelValue = payload => {
+  console.log(payload)
+}
 </script>
 
 <template>
@@ -16,16 +32,22 @@ import BaseButton from '../../components/atoms/BaseButton.vue'
         <h3 class="title">Seus dados</h3>
         <form class="form-teacher-data-1" autocomplete="off">
           <div class="input-group cl3">
-            <input
+            <BaseInput
               type="text"
               placeholder="Informe seu nome"
               required
+              @update:input="changeModelValue"
+              name="name"
+              modelValue="name"
               class="base-input"
             />
-            <input
+            <BaseInput
               type="text"
               placeholder="Informe seu sobrenome"
               required
+              @update:input="changeModelValue"
+              name="surname"
+              modelValue="surname"
               class="base-input"
             />
             <input
@@ -81,29 +103,36 @@ import BaseButton from '../../components/atoms/BaseButton.vue'
       <div class="form-wrapper">
         <div class="title-wrapper">
           <h3 class="title">Horários disponíveis</h3>
-          <button class="btn-new-time">+ Novo horário</button>
+          <button class="btn-new-time" @click="addTimeObjData">
+            + Novo horário
+          </button>
         </div>
         <form class="form-teacher-data-3" autocomplete="off">
-          <div class="input-group cl3">
-            <input
-              type="text"
-              placeholder="Selecione o dia da semana"
-              required
-              class="base-input"
-            />
-            <div class="input-group cl2">
+          <div v-for="time in timeData">
+            <div class="input-group cl3" style="margin-top: 10px">
               <input
                 type="text"
-                placeholder="Custo por hora"
+                placeholder="Selecione o dia da semana"
                 required
+                v-model="time.day"
                 class="base-input"
               />
-              <input
-                type="text"
-                placeholder="Custo por hora"
-                required
-                class="base-input"
-              />
+              <div class="input-group cl2">
+                <input
+                  type="text"
+                  placeholder="Das"
+                  required
+                  v-model="time.start"
+                  class="base-input"
+                />
+                <input
+                  type="text"
+                  placeholder="Até"
+                  required
+                  v-model="time.end"
+                  class="base-input"
+                />
+              </div>
             </div>
           </div>
           <div class="btn-form-wrapper">
@@ -111,7 +140,7 @@ import BaseButton from '../../components/atoms/BaseButton.vue'
             <BaseButton
               type="submit"
               typeStyle="fill"
-              @clickEvent="teste"
+              @clickEvent="handleSubmit"
               text="Salvar cadastro"
             />
           </div>

@@ -23,7 +23,11 @@ const clickEvent = () => emit('clickEvent')
 </script>
 
 <template>
-  <button :class="`btn-${props.typeStyle}`" :type="type" @click="clickEvent">
+  <button
+    :class="`btn-${props.typeStyle}`"
+    :type="type"
+    @click.prevent="clickEvent"
+  >
     {{ props.text }}
   </button>
 </template>
